@@ -1,0 +1,8 @@
+dist
+node_modules
+.gitignore
+.npmignore
+.travis.yml
+test
+coverage
+keystore
