@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  foodpay_bot:
+    image: $CI_REGISTRY_IMAGE:bot
+    container_name: foodpay_bot
+    restart: always
+    ports:
+      - "4000:4000"

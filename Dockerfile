@@ -1,4 +1,5 @@
 FROM node:latest
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -7,12 +8,12 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 # If you are building your code for production
 # RUN npm install --only=production
 
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
-CMD [ "npm", "start" ]
+EXPOSE 4000
+CMD [ "yarn", "start" ]
