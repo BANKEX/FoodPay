@@ -32,7 +32,7 @@ contract FoodPay is MultiToken, Ownable {
     function createNewSubtokens(uint256[] _tokenId, address _to, uint256[] _value) onlyOwner public returns(bool) {
         for (uint256 i = 0; i < _tokenId.length; i++) {
             require(_value[i] > 0);
-            balance[_tokenId[i]][_to] = _value[i];
+            balances[_tokenId[i]][_to] = _value[i];
             totalSupply_[_tokenId[i]] = _value[i];
             Transfer(_tokenId[i], address(0), _to, _value[i]);
         }

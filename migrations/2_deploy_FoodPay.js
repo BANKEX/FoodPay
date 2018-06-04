@@ -1,4 +1,4 @@
-var TestingToken = artifacts.require("./TestingToken.sol");
+var TestingToken = artifacts.require("./FoodPay.sol");
 
 
 
