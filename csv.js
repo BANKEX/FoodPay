@@ -85,5 +85,3 @@ function createAndSaveQRCode(data, i) {
 
     code.pipe(output);
 }
-// createAndSaveQRCode();
-generateCSFData(3, "0x61d94d1c3335c6c30c1336da9e4d54a586f1ffa882338a8bb9f8268296434bc9", "0x6D377De54Bde59c6a4B0fa15Cb2EFB84BB32D433", 4000, 200, 20)
