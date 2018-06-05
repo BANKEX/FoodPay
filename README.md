@@ -3,7 +3,7 @@ Implementation of use ERC 888 token
 
 Use
 `
-npm i
+npm i  
 node webServer.js
 `
 to start app on `localhost:3000`
@@ -17,7 +17,7 @@ to start app on `localhost:3000`
 #### Object: productId
 The object properties is product number. 
 The property value is the amount of product, which would be increased if we choose it.
-```
+```javascript
     var productId = {
         1: 0,
         2: 0,
@@ -31,7 +31,7 @@ The property value is the amount of product, which would be increased if we choo
 #### Object: price
 The object properties is product number. 
 The property value is product price.
-```
+```javascript
     const price = {
         1: 4,
         2: 3,
@@ -45,7 +45,7 @@ The property value is product price.
 #### Object: productNames
 First property of the productNames object is token number .
 Their nested properties is product’s names.
-```
+```javascript
     const productNames = {
         1: {
             1: "Octa",
@@ -64,7 +64,7 @@ Their nested properties is product’s names.
 ### File: cashbox.hbs
 1. Insert button code.
     Example:
-```
+```html
         <button id="addProd1" onclick="addProduct(1)" class="btn btn-info btn-lg applybuttons">
             <p class="pas">1</p>
             Octa
@@ -72,7 +72,7 @@ Their nested properties is product’s names.
 ```
 2. Find `<td>` with id: `countProd`, `prodType`, `Supper_tokens_logs` and insert `<div>` with your productID:
     For example:
-```
+```html
         <td id="countProd">
             <div id="prodC1"></div>
         </td>
@@ -86,7 +86,7 @@ Their nested properties is product’s names.
     
 ### File: cashbox.js
 #### Functions: addProduct and delProduct
-```
+```javascript
 function addProduct(tokenNum) {
    let nameProduct;
    if (tokenNum > 4) {
@@ -103,7 +103,7 @@ function addProduct(tokenNum) {
 ```
 
 * We are interested in a block with a conditional operator:
-```
+```javascript
  if (tokenNum > 4) {
        nameProduct = productNames[2][tokenNum - 4];
    } else {
@@ -114,7 +114,7 @@ In our case we have Food Token and Thing Token. Food Token includes 4 products a
 If you want to add new product to one of this tokens - you have to increment if condition and decrease array index.
 If we would like to add new product associated with Food Token - we have to increment `tokenNum > 4` to `tokenNum > 5` and `productNames[2][tokenNum - 4]` to `productNames[2][tokenNum - 5]`.
 It will see like this:
-```
+```javascript
  if (tokenNum > 5) {
        nameProduct = productNames[2][tokenNum - 5];
    } else {
@@ -127,7 +127,7 @@ It will see like this:
 #### Functions: proceedToСheckout and setMoneyBack
 Сonsider proceedToСheckout and setMoneyBack functions.
 And more specifically - this part: 
-```
+```javascript
 localStorage.setItem('pay', productId[1] + "," + productId[2] + "," + productId[3] + "," + productId[4] + "," + productId[5] + "," + productId[6] + "," + productId[7]);
 ```
 This piece of code used to get pay in tokens. Item ‘pay’ stores counts of every product. If you would like to add new product - push ```productId[num]``` value here!
@@ -136,20 +136,20 @@ This piece of code used to get pay in tokens. Item ‘pay’ stores counts of ev
 ### File: index.js
 #### Function: checkAllowanceOfTokens
 If you would add new token - you have write next code in `checkAllowanceOfTokens` function
-```
+```javascript
 let tokenBalance = getAllowance(NUMBER_OF_YOUR_NEW_TOKEN, contractOwnerAddress, customerAddress);
 ```
 And then wait Promise. This is necessary to check the balance when the buyer makes a purchase.
 
 #### Function: pay
 Previously, we looked at an item `pay` in LocalStorage. Now we get array from this string.
-```
+```javascript
 let basket = localStorage.getItem('pay').split(',');
 ```
 In pay function you can next code:
 `i` - is the product ID.
 We have 4 products that can be exchanged for a Food Token. `i == 3` is the last product. If we want to add new product (Food Token) - we have to change condition `i > 3` to `i > 4` and change ```productNames[2][i - 3]``` to ```productNames[2][i - 4]```
-```
+```javascript
 let tokenNumber;
 if (i > 3) {
     tokenNumber = 2;
@@ -169,7 +169,7 @@ if (i > 3) {
 ### File: updateLogs.js
 If we add new product - increase values like in `addProduct` function
 It was:
-```
+```javascript
 if (localStorage[i] > 4) {
     productName = productNames[2][localStorage[i]-4];
 } else {
