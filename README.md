@@ -92,7 +92,7 @@ function addProduct(tokenNum) {
 }
 ```
 
-*We are interested in a block with a conditional operator:
+* We are interested in a block with a conditional operator:
 ```
  if (tokenNum > 4) {
        nameProduct = productNames[2][tokenNum - 4];
@@ -102,7 +102,7 @@ function addProduct(tokenNum) {
 ```   
 In our case we have Food Token and Thing Token. Food Token includes 4 products and Thing Token - 3.
 If you want to add new product to one of this tokens - you have to increment if condition and decrease array index.
-If we would like to add new product associated with Food Token - we have to increment tokenNum > 4 to 5 and productNames[2][tokenNum - 4] to productNames[2][tokenNum - 5].
+If we would like to add new product associated with Food Token - we have to increment `tokenNum > 4` to `tokenNum > 5` and `productNames[2][tokenNum - 4]` to `productNames[2][tokenNum - 5]`.
 It will see like this:
 ```
  if (tokenNum > 5) {
@@ -112,7 +112,7 @@ It will see like this:
    }
  ```  
 
-*Next we will repeat this actions in delProduct function.
+* Next we will repeat this actions in delProduct function.
 
 #### Functions: proceedToСheckout and setMoneyBack
 Сonsider proceedToСheckout and setMoneyBack functions.
