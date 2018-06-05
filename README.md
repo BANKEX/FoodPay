@@ -157,7 +157,7 @@ if (i > 3) {
 }
 ```
 ### File: updateLogs.js
-If we add new product - increase values like in addProduct function
+If we add new product - increase values like in `addProduct` function
 It was:
 ```
 if (localStorage[i] > 4) {
@@ -166,13 +166,14 @@ if (localStorage[i] > 4) {
     productName = productNames[1][localStorage[i]];
 }
 ```
+```
 It's become
 if (localStorage[i] > 5) {
     productName = productNames[2][localStorage[i]-5];
 } else {
     productName = productNames[1][localStorage[i]];
 }
-
+```
 
 
     
