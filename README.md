@@ -2,10 +2,10 @@
 Implementation of use ERC 888 token
 
 Use
-`
+```
 npm i  
 node webServer.js
-`
+```
 to start app on `localhost:3000`
 
 * Cashbox: https://foodpay.bankex.team/cashbox
@@ -29,7 +29,7 @@ The property value is the amount of product, which would be increased if we choo
     };
 ```
 #### Object: price
-The object properties is product number. 
+The object properties is product number.  
 The property value is product price.
 ```javascript
     const price = {
@@ -43,7 +43,7 @@ The property value is product price.
     };
 ```
 #### Object: productNames
-First property of the productNames object is token number .
+First property of the productNames object is token number.     
 Their nested properties is product’s names.
 ```javascript
     const productNames = {
@@ -62,7 +62,7 @@ Their nested properties is product’s names.
 ```
 
 ### File: cashbox.hbs
-1. Insert button code.
+1. Insert button code.   
     Example:
 ```html
         <button id="addProd1" onclick="addProduct(1)" class="btn btn-info btn-lg applybuttons">
@@ -70,8 +70,8 @@ Their nested properties is product’s names.
             Octa
         </button>
 ```
-2. Find `<td>` with id: `countProd`, `prodType`, `Supper_tokens_logs` and insert `<div>` with your productID:
-    For example:
+2. Find `<td>` with id: `countProd`, `prodType`, `Supper_tokens_logs` and insert `<div>` with your productID:   
+    For example:  
 ```html
         <td id="countProd">
             <div id="prodC1"></div>
@@ -102,7 +102,7 @@ function addProduct(tokenNum) {
 }
 ```
 
-* We are interested in a block with a conditional operator:
+We are interested in a block with a conditional operator:
 ```javascript
  if (tokenNum > 4) {
        nameProduct = productNames[2][tokenNum - 4];
@@ -110,9 +110,9 @@ function addProduct(tokenNum) {
        nameProduct = productNames[1][tokenNum];
    }
 ```   
-In our case we have Food Token and Thing Token. Food Token includes 4 products and Thing Token - 3.
-If you want to add new product to one of this tokens - you have to increment if condition and decrease array index.
-If we would like to add new product associated with Food Token - we have to increment `tokenNum > 4` to `tokenNum > 5` and `productNames[2][tokenNum - 4]` to `productNames[2][tokenNum - 5]`.
+In our case we have Food Token and Thing Token. Food Token includes 4 products and Thing Token - 3.   
+If you want to add new product to one of this tokens - you have to increment if condition and decrease array index.     
+If we would like to add new product associated with Food Token - we have to increment `tokenNum > 4` to `tokenNum > 5` and `productNames[2][tokenNum - 4]` to `productNames[2][tokenNum - 5]`.    
 It will see like this:
 ```javascript
  if (tokenNum > 5) {
@@ -122,15 +122,15 @@ It will see like this:
    }
  ```  
 
-* Next we will repeat this actions in delProduct function.
+Next we will repeat this actions in delProduct function.   
 
 #### Functions: proceedToСheckout and setMoneyBack
-Сonsider proceedToСheckout and setMoneyBack functions.
+Сonsider proceedToСheckout and setMoneyBack functions.     
 And more specifically - this part: 
 ```javascript
 localStorage.setItem('pay', productId[1] + "," + productId[2] + "," + productId[3] + "," + productId[4] + "," + productId[5] + "," + productId[6] + "," + productId[7]);
 ```
-This piece of code used to get pay in tokens. Item ‘pay’ stores counts of every product. If you would like to add new product - push ```productId[num]``` value here!
+This piece of code used to get pay in tokens. Item `pay` stores counts of every product. If you would like to add new product - push ```productId[num]``` value here!
 
 
 ### File: index.js
@@ -176,8 +176,8 @@ if (localStorage[i] > 4) {
     productName = productNames[1][localStorage[i]];
 }
 ```
-```
 It's become
+```javascript
 if (localStorage[i] > 5) {
     productName = productNames[2][localStorage[i]-5];
 } else {
