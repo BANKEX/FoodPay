@@ -16,6 +16,7 @@ to start app on `localhost:3000`
 ### File: utils/config.js
 #### Object: productId
 The object properties is product number. 
+
 The property value is the amount of product, which would be increased if we choose it.
 ```javascript
     var productId = {
