@@ -126,12 +126,16 @@ This piece of code used to get pay in tokens. Item ‘pay’ stores counts of ev
 ### File: index.js
 #### Function: checkAllowanceOfTokens
 If you would add new token - you have write next code in `checkAllowanceOfTokens` function
-```let tokenBalance = getAllowance(NUMBER_OF_YOUR_NEW_TOKEN, contractOwnerAddress, customerAddress);```
+```
+let tokenBalance = getAllowance(NUMBER_OF_YOUR_NEW_TOKEN, contractOwnerAddress, customerAddress);
+```
 And then wait Promise. This is necessary to check the balance when the buyer makes a purchase.
 
 #### Function: pay
 Previously, we looked at an item `pay` in LocalStorage. Now we get array from this string.
-```let basket = localStorage.getItem('pay').split(',');```
+```
+let basket = localStorage.getItem('pay').split(',');
+```
 In pay function you can next code:
 `i` - is the product ID.
 We have 4 products that can be exchanged for a Food Token. `i == 3` is the last product. If we want to add new product (Food Token) - we have to change condition `i > 3` to `i > 4` and change ```productNames[2][i - 3]``` to ```productNames[2][i - 4]```
