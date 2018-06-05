@@ -1,6 +1,16 @@
 # FoodPay
 Implementation of use ERC 888 token
 
+Use
+`
+npm i
+node webServer.js
+`
+to start app on `localhost:3000`
+
+* Cashbox: https://foodpay.bankex.team/cashbox
+* Scaner: https://foodpay.bankex.team/scan
+* Dashboard: https://foodpay.bankex.team/admin
  
 ## How to add new product or token?
 ### File: utils/config.js
