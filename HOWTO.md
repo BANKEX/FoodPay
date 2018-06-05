@@ -91,15 +91,15 @@ function addProduct(tokenNum) {
 
 We are interested in a block with a conditional operator:
 ```javascript
-   /*
-    * If tokenNum more than count of products, which can exchange on first token, 
-    * then uses products from second token
-    */
- if (tokenNum > 4) {
-       nameProduct = productNames[2][tokenNum - 4];
-   } else {
-       nameProduct = productNames[1][tokenNum];
-   }
+/*
+* If tokenNum more than count of products, which can exchange on first token, 
+* then uses products from second token
+*/
+if (tokenNum > 4) {
+   nameProduct = productNames[2][tokenNum - 4];
+} else {
+   nameProduct = productNames[1][tokenNum];
+}
 ```   
 In our case we have Food Token and Thing Token. Food Token includes 4 products and Thing Token - 3.   
 If you want to add new product to one of this tokens - you have to increment if condition and decrease array index.     
@@ -165,10 +165,10 @@ if (i > 3) {
 If we add new product - increase values like in `addProduct` function
 It was:
 ```javascript
- /*
-  * If localStorage[i] more than count of products, which can exchange on first token, 
-  * then uses products from second token
-  */
+/*
+* If localStorage[i] more than count of products, which can exchange on first token, 
+* then uses products from second token
+*/
 if (localStorage[i] > 4) {
     productName = productNames[2][localStorage[i]-4];
 } else {
