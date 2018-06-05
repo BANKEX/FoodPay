@@ -6,7 +6,7 @@ function addProduct(tokenNum) {
         nameProduct = productNames[1][tokenNum];
     }
     productId[tokenNum] += 1;
-    console.log(productId)
+
     document.getElementById('prodC' + tokenNum).innerHTML = productId[tokenNum] + '<br><br><br>';
     document.getElementById('prodT' + tokenNum).innerHTML = nameProduct + '<br><br><br>';
     document.getElementById('prodD' + tokenNum).innerHTML = `<button id="delProd${tokenNum}" onclick="delProduct(${tokenNum})" class="btn btn-danger"><p class="pminus"><strong>-</strong></p></button><br><br>`;
@@ -14,8 +14,8 @@ function addProduct(tokenNum) {
 
 function delProduct(tokenNum) {
     let nameProduct;
-    if (tokenNum > 3) {
-        nameProduct = productNames[2][tokenNum - 3];
+    if (tokenNum > 4) {
+        nameProduct = productNames[2][tokenNum - 4];
     } else {
         nameProduct = productNames[1][tokenNum];
     }

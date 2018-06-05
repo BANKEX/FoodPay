@@ -229,12 +229,12 @@ function pay(customerAddress, callback) {
                 }
                 
                 let nameProduct;
-                if (Number(i) + 1 > 4) {
+                if (i > 3) {
                     bal = 1;
-                    nameProduct = productNames[2][Number(i) + 1 - 4];
+                    nameProduct = productNames[2][i - 3];
                 } else {
                     bal = 0;
-                    nameProduct = productNames[1][Number(i) + 1];
+                    nameProduct = productNames[1][i - 3];
                 }
                 if (basket[i] > balances[bal]) {
                     err = true;
