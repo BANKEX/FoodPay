@@ -2,9 +2,9 @@
 Implementation of use ERC 888 token
 
  
-##How to add new product or token?
-###File: utils/config.js
-####Object: productId
+## How to add new product or token?
+### File: utils/config.js
+#### Object: productId
 The object properties is product number. 
 The property value is the amount of product, which would be increased if we choose it.
 ```
@@ -18,7 +18,7 @@ The property value is the amount of product, which would be increased if we choo
         7: 0
     };
 ```
-####Object: price
+#### Object: price
 The object properties is product number. 
 The property value is product price.
 ```
@@ -32,7 +32,7 @@ The property value is product price.
         7: 1
     };
 ```
-####Object: productNames
+#### Object: productNames
 First property of the productNames object is token number .
 Their nested properties is product’s names.
 ```
@@ -51,7 +51,7 @@ Their nested properties is product’s names.
     };
 ```
 
-###File: cashbox.hbs
+### File: cashbox.hbs
 1. Insert button code.
     Example:
 ```
@@ -74,7 +74,7 @@ Their nested properties is product’s names.
         </td>
 ```    
     
-###File: cashbox.js
+### File: cashbox.js
 #### Functions: addProduct and delProduct
 ```
 function addProduct(tokenNum) {
@@ -123,13 +123,13 @@ localStorage.setItem('pay', productId[1] + "," + productId[2] + "," + productId[
 This piece of code used to get pay in tokens. Item ‘pay’ stores counts of every product. If you would like to add new product - push ```productId[num]``` value here!
 
 
-###File: index.js
-####Function: checkAllowanceOfTokens
+### File: index.js
+#### Function: checkAllowanceOfTokens
 If you would add new token - you have write next code in `checkAllowanceOfTokens` function
 ```let tokenBalance = getAllowance(NUMBER_OF_YOUR_NEW_TOKEN, contractOwnerAddress, customerAddress);```
 And then wait Promise. This is necessary to check the balance when the buyer makes a purchase.
 
-####Function: pay
+#### Function: pay
 Previously, we looked at an item `pay` in LocalStorage. Now we get array from this string.
 ```let basket = localStorage.getItem('pay').split(',');```
 In pay function you can next code:
