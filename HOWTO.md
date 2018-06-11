@@ -6,8 +6,8 @@ The object properties is product number.
 The property value is the amount of product, which would be increased if we choose it.
 ```javascript
     var productId = {
-        1: 0,
-        2: 0,
+        1: 0, // Product N count is 0 by default          
+        2: 0, 
         3: 0,
         4: 0,
         5: 0,
@@ -20,13 +20,13 @@ The object properties is product number.
 The property value is product price.
 ```javascript
     const price = {
-        1: 4,
-        2: 3,
-        3: 7,
-        4: 1,
-        5: 2,
-        6: 2,
-        7: 1
+        1: 4, // Product 1 price is 4 token per one
+        2: 3, // Product 2 price is 3 token per one
+        3: 7, // Product 3 price is 7 token per one
+        4: 1, // Product 4 price is 1 token per one
+        5: 2, // Product 5 price is 2 token per one
+        6: 2, // Product 6 price is 2 token per one
+        7: 1  // Product 7 price is 1 token per one
     };
 ```
 #### Object: productNames
@@ -34,16 +34,16 @@ First property of the productNames object is token number.
 Their nested properties is product’s names.
 ```javascript
     const productNames = {
-        1: {
-            1: "Octa",
-            2: "Super Food",
-            3: "Soylent",
-            4: "RedBull"
+        1: {                  // Product names of the first token
+            1: "Octa",        // Product 1 name
+            2: "Super Food",  // Product 2 name
+            3: "Soylent",     // Product 3 name
+            4: "RedBull"      // Product 4 name
         },
-        2: {
-            1: "Bottle",
-            2: "T-shirt",
-            3: "Sleeping bag"
+        2: {                  // Product names of the second token
+            1: "Bottle",      // Product 5 name
+            2: "T-shirt",     // Product 6 name
+            3: "Sleeping bag" // Product 7 name 
         }
     };
 ```
@@ -75,8 +75,8 @@ Their nested properties is product’s names.
 #### Functions: addProduct and delProduct
 ```javascript
 function addProduct(tokenNum) {
-   let nameProduct;
-   if (tokenNum > 4) {
+   let nameProduct; // Product name
+   if (tokenNum > 4) { 
        nameProduct = productNames[2][tokenNum - 4];
    } else {
        nameProduct = productNames[1][tokenNum];
@@ -91,11 +91,15 @@ function addProduct(tokenNum) {
 
 We are interested in a block with a conditional operator:
 ```javascript
- if (tokenNum > 4) {
-       nameProduct = productNames[2][tokenNum - 4];
-   } else {
-       nameProduct = productNames[1][tokenNum];
-   }
+/*
+* If tokenNum more than count of products, which can exchange on first token, 
+* then uses products from second token
+*/
+if (tokenNum > 4) {
+   nameProduct = productNames[2][tokenNum - 4];
+} else {
+   nameProduct = productNames[1][tokenNum];
+}
 ```   
 In our case we have Food Token and Thing Token. Food Token includes 4 products and Thing Token - 3.   
 If you want to add new product to one of this tokens - you have to increment if condition and decrease array index.     
@@ -138,6 +142,10 @@ In pay function you can next code:
 We have 4 products that can be exchanged for a Food Token. `i == 3` is the last product. If we want to add new product (Food Token) - we have to change condition `i > 3` to `i > 4` and change ```productNames[2][i - 3]``` to ```productNames[2][i - 4]```
 ```javascript
 let tokenNumber;
+/*
+* If i more than count of (products - 1) [because 'i' is array index] , which can exchange on first token, 
+* then uses products from second token
+*/
 if (i > 3) {
     tokenNumber = 2;
 } else {
@@ -157,6 +165,10 @@ if (i > 3) {
 If we add new product - increase values like in `addProduct` function
 It was:
 ```javascript
+/*
+* If localStorage[i] more than count of products, which can exchange on first token, 
+* then uses products from second token
+*/
 if (localStorage[i] > 4) {
     productName = productNames[2][localStorage[i]-4];
 } else {
